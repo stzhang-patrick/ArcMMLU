@@ -1,143 +1,59 @@
-# Measuring massive multitask language understanding in Chinese
+# ArcMMLU—面向图书馆与情报学(LIS)的中文综合评测基准
 
-<p align="center"> <img src="fig/banner.jpg" style="width: 100%;" id="title-icon">       </p>
+## 简介
 
-<h4 align="center">
-    <p>
-        <a href="https://github.com/haonan-li/CMMLU/">简体中文</a> |
-        <b>English</b> 
-    <p>
-</h4>
+ArcMMLU是一个面向图书馆与情报学（Library and Information Science, LIS）的中文综合评测基准，专门用于评估语言模型在中文LIS学科领域的知识和推理能力，涵盖了档案学、数据科学、图书馆学和信息学四个评测维度。
 
-<p align="center" style="display: flex; flex-direction: row; justify-content: center; align-items: center">
-📄 <a href="https://arxiv.org/abs/2306.09212" target="_blank" style="margin-right: 15px; margin-left: 10px">Paper</a> • 
-🏆 <a href="https://github.com/haonan-li/CMMLU/#leaderboard" target="_blank"  style="margin-left: 10px">Leaderboard</a> •
-🤗 <a href="https://huggingface.co/datasets/haonan-li/cmmlu" target="_blank" style="margin-left: 10px">Dataset</a> 
-</p>
+值得一提的是，ArcMMLU的名字起源自我们面对档案学的大语言模型研究项目，ArcGPT。在此之后，我们的研究范围从档案学扩大到了整个图书馆与信息科学（Library & Information Science），但是我们仍然沿用了ArcMMLU的名字。因此，ArcMMLU是面向LIS学科的综合评测基准，包括但并不仅限于档案学。
 
-## Introduction
+出于通用性、便捷性的考虑，在设计ArcMMLU时，我们采用了与CMMLU相同的数据集格式，并基于CMMLU项目提供了相应的评测代码。这意味着如果某个大型语言模型已经完成了CMMLU的评测，那么只需进行少量修改就可以快速进行ArcMMLU的评测。
 
-CMMLU is a comprehensive evaluation benchmark specifically designed to evaluate the knowledge and reasoning abilities of LLMs within the context of Chinese language and culture. 
-CMMLU covers a wide range of subjects, comprising 67 topics that span from elementary to advanced professional levels. It includes subjects that require computational expertise, such as physics and mathematics, as well as disciplines within humanities and social sciences. 
-Many of these tasks are not easily translatable from other languages due to their specific contextual nuances and wording. 
-Furthermore, numerous tasks within CMMLU have answers that are specific to China and may not be universally applicable or considered correct in other regions or languages.
-<p align="center"> <img src="fig/logo.jpg" style="width: 85%;" id="title-icon">       </p>
+特别感谢[CMMLU---中文多任务语言理解评估](https://github.com/haonan-li/CMMLU#cmmlu---%E4%B8%AD%E6%96%87%E5%A4%9A%E4%BB%BB%E5%8A%A1%E8%AF%AD%E8%A8%80%E7%90%86%E8%A7%A3%E8%AF%84%E4%BC%B0)项目为中文大型语言模型评测所作出的贡献。我们希望ArcMMLU能够成为中文大型语言模型评测的细分领域补充，进一步完善、丰富中文大型语言模型评测。
 
-## Leaderboard
+## 排行榜（未排序）
 
-The following table displays the performance of models in the five-shot and Zero-shot setting. If you wish to contribute your model's results, kindly contact us or submit a pull request to update this section. 
-#### Five-shot
+以下表格显示了模型在 five-shot 和 zero-shot 下的表现。如果您想贡献您的模型结果，请与我们联系或直接提交拉取请求。
 
-| Model               | STEM | Humanities | Social Science | Other | China-specific | Average |
-|---------------------|------|------------|----------------|-------|----------------|---------|
-| Multilingual-oriented                                             |
-| [GPT4](https://openai.com/gpt4)                                   | **65.23** | **72.11** | **72.06** | **74.79** | **66.12** | **70.95** |
-| [ChatGPT](https://openai.com/chatgpt)                             |   47.81   |   55.68   |   56.50   |   62.66   |   50.69   |   55.51   |
-| [Falcon-40B](https://huggingface.co/tiiuae/falcon-40b)            |   33.33   |   43.46   |   44.28   |   44.75   |   39.46   |   41.45   |
-| [LLaMA-65B](https://github.com/facebookresearch/llama)            |   34.47   |   40.24   |   41.55   |   42.88   |   37.00   |   39.80   |
-| [BLOOMZ-7B](https://github.com/bigscience-workshop/xmtf)          |   30.56   |   39.10   |   38.59   |   40.32   |   37.15   |   37.04   |
-| [Bactrian-LLaMA-13B](https://github.com/mbzuai-nlp/bactrian-x)    |   27.52   |   32.47   |   32.27   |   35.77   |   31.56   |   31.88   |
-| Chinese-oriented                                                  |
-| [KwaiYii-13B](https://github.com/kwai)                 | 46.54 | **69.22** |   **64.49**  | **65.09** |   **63.1**   | **61.73** |
-| [Qwen-7B](https://github.com/QwenLM/Qwen-7B)                      | **48.39** | 63.77 |   61.22   | 62.14 |   58.73   |   58.66 |
-| [MiLM-6B](https://github.com/XiaoMi/MiLM-6B/)                     |   46.85   |   61.12   | **61.68** |   58.84   | **59.39** |   57.17   |
-| [Baichuan-13B](https://github.com/baichuan-inc/Baichuan-13B)      |   42.38   |   61.61   |   60.44   |   59.26   |   56.62   |   55.82   |
-| [ChatGLM2-6B](https://huggingface.co/THUDM/chatglm2-6b)           |   42.55   |   50.98   |   50.99   |   50.80   |   48.37   |   48.80   |
-| [MiLM-1.3B](https://github.com/XiaoMi/MiLM-6B/)                   |   35.59   |   49.58   |   49.03   |   47.56   |   48.17   |   45.39   |
-| [Baichuan-7B](https://github.com/baichuan-inc/baichuan-7B)        |   35.25   |   48.07   |   47.88   |   46.61   |   44.14   |   44.43   |
-| [ChatGLM-6B](https://github.com/THUDM/GLM-130B)                   |   32.35   |   39.22   |   39.65   |   38.62   |   37.70   |   37.48   |
-| [BatGPT-15B](https://arxiv.org/abs/2307.00360)                    |   34.96   |   35.45   |   36.31   |   42.14   |   37.89   |   37.16   |
-| [Chinese-LLaMA-13B](https://github.com/ymcui/Chinese-LLaMA-Alpaca)|   27.12   |   33.18   |   34.87   |   35.10   |   32.97   |   32.63   |
-| [MOSS-SFT-16B](https://github.com/OpenLMLab/MOSS)                 |   27.23   |   30.41   |   28.84   |   32.56   |   28.68   |   29.57   |
-| Random                                                            |   25.00   |   25.00   |   25.00   |   25.00   |   25.00   |   25.00   |
+### Five-shot
 
+| 模型         | 档案学 | 数据科学 | 图书馆学 | 信息学 | 平均分 |
+| ------------ | ------ | -------- | -------- | ------ | ------ |
+| ChatGLM2-6B  | 52.73  | 54.10    | 51.85    | 48.63  | 51.83  |
+| BATGPT-15B   | 44.15  | 49.57    | 45.94    | 43.53  | 45.80  |
+| XVERSE-13B   | 60.28  | 63.18    | 65.41    | 60.32  | 62.30  |
+| InternLM-7B  | 51.33  | 61.11    | 60.33    | 51.24  | 56.00  |
+| Baichuan-7B  | 50.70  | 50.63    | 52.63    | 46.64  | 50.15  |
+| Baichuan-13B | 56.12  | 61.24    | 62.19    | 59.33  | 59.72  |
 
-#### Zero-shot
-| Model               | STEM | Humanities | Social Science | Other | China-specific | Average |
-|---------------------|------|------------|----------------|-------|----------------|---------|
-| Multilingual-oriented                                             | 
-| [GPT4](https://openai.com/gpt4)                                   | **63.16** | **69.19** | **70.26** | **73.16** | **63.47** | **68.90** |
-| [ChatGPT](https://openai.com/chatgpt)                             |   44.80   |   53.61   |   54.22   |   59.95   |   49.74   |   53.22   |
-| [BLOOMZ-7B](https://github.com/bigscience-workshop/xmtf)          |   33.03   |   45.74   |   45.74   |   46.25   |   41.58   |   42.80   |
-| [Falcon-40B](https://huggingface.co/tiiuae/falcon-40b)            |   31.11   |   41.30   |   40.87   |   40.61   |   36.05   |   38.50   |
-| [LLaMA-65B](https://github.com/facebookresearch/llama)            |   31.09   |   34.45   |   36.05   |   37.94   |   32.89   |   34.88   |
-| [Bactrian-LLaMA-13B](https://github.com/mbzuai-nlp/bactrian-x)    |   26.46   |   29.36   |   31.81   |   31.55   |   29.17   |   30.06   |
-| Chinese-oriented                                                  |
-| [KwaiYii-13B](https://github.com/kwai)                            |   46.82   | **69.35** |   63.42   | **64.02** | **63.26** | **61.22** |
-| [MiLM-6B](https://github.com/XiaoMi/MiLM-6B/)                     | **48.88** |   63.49   | **66.20** |   62.14   |   62.07   |   60.37   |
-| [Qwen-7B](https://github.com/QwenLM/Qwen-7B)                      |   46.33   |   62.54   |   60.48   |   61.72   |   58.77   |   57.57   |
-| [Baichuan-13B](https://github.com/baichuan-inc/Baichuan-13B)      |   42.04   |   60.49   |   59.55   |   56.60   |   55.72   |   54.63   |
-| [MiLM-1.3B](https://github.com/XiaoMi/MiLM-6B/)                   |   40.51   |   54.82   |   54.15   |   53.99   |   52.26   |   50.79   |
-| [ChatGLM2-6B](https://huggingface.co/THUDM/chatglm2-6b)           |   41.28   |   52.85   |   53.37   |   52.24   |   50.58   |   49.95   |
-| [Baichuan-7B](https://github.com/baichuan-inc/baichuan-7B)        |   32.79   |   44.43   |   46.78   |   44.79   |   43.11   |   42.33   |
-| [ChatGLM-6B](https://github.com/THUDM/GLM-130B)                   |   32.22   |   42.91   |   44.81   |   42.60   |   41.93   |   40.79   |
-| [BatGPT-15B](https://arxiv.org/abs/2307.00360)                    |   33.72   |   36.53   |   38.07   |   46.94   |   38.32   |   38.51   |
-| [Chinese-LLaMA-13B](https://github.com/ymcui/Chinese-LLaMA-Alpaca)|   26.76   |   26.57   |   27.42   |   28.33   |   26.73   |   27.34   |
-| [MOSS-SFT-16B](https://github.com/OpenLMLab/MOSS)                 |   25.68   |   26.35   |   27.21   |   27.92   |   26.70   |   26.88   |
-| Random              | 25.00 | 25.00      | 25.00          | 25.00 | 25.00          | 25.00   |
+### Zero-shot
 
-## Data Format
-Each question in the dataset is a multiple-choice questions with 4 choices and only one choice as the correct answer.  The data is comma saperated .csv file. The data can be found in [data](https://github.com/haonan-li/CMMLU/data) 
-Here is an example of the data format:
+| 模型         | 档案学 | 数据科学 | 图书馆学 | 信息学 | 平均分 |
+| ------------ | ------ | -------- | -------- | ------ | ------ |
+| ChatGLM2-6B  | 52.19  | 56.70    | 53.82    | 48.88  | 52.90  |
+| BATGPT-15B   | 48.31  | 54.30    | 53.35    | 45.27  | 50.31  |
+| XVERSE-13B   | 53.68  | 55.64    | 58.84    | 56.34  | 56.13  |
+| InternLM-7B  | 52.96  | 59.91    | 59.62    | 51.24  | 55.95  |
+| Baichuan-7B  | 49.21  | 46.36    | 48.69    | 45.27  | 47.38  |
+| Baichuan-13B | 54.41  | 57.17    | 61.05    | 54.48  | 56.78  |
+
+## 数据格式
+
+数据集中的每个问题都是一个多项选择题，有4个选项，只有一个选项是正确答案。数据以逗号分隔的.csv文件形式存在。 这里是数据格式的示例：
+
 ```
-    同一物种的两类细胞各产生一种分泌蛋白，组成这两种蛋白质的各种氨基酸含量相同，但排列顺序不同。其原因是参与这两种蛋白质合成的,tRNA种类不同,同一密码子所决定的氨基酸不同,mRNA碱基序列不同,核糖体成分不同,C
-    Translation:"Two types of cells within the same species each produce a secretion protein. The various amino acids that make up these two proteins have the same composition but differ in their arrangement. The reason for this difference in arrangement in the synthesis of these two proteins is,Different types of tRNA,Different amino acids determined by the same codon,Different mRNA base sequences,Different ribosome components,C"
+0,2020年6月20日，第十三届全国人大常委会第十九次会议审议通过了新修订的《中华人民共和国档案法》，国家主席习近平签署第四十七号主席令予以公布，自( )起正式施行。,2020年6月20日,2020年7月1日,2021年1月1日,2021年6月20日,C
 ```
 
-## Usage
+## 使用方法
 
-To use our code in your project, clone the repository to your local machine:
+要在您的项目中使用我们的代码，请将存储库克隆到本地计算机：
 
-```shell
-    git clone https://github.com/haonan-li/CMMLU.git
-    cd CMMLU/src
 ```
-#### Data
-We provide development and test dataset according to each subject in the [data/dev](https://github.com/haonan-li/CMMLU/tree/master/data/dev) and [data/test](https://github.com/haonan-li/CMMLU/tree/master/data/test) directory.
-
-#### Prompt
-We provide the preprocessing code in [src/mp_utils](https://github.com/haonan-li/CMMLU/tree/master/src/mp_utils.py) directory. It includes apporach we used to generate direct answer prompt and chain-of-thought (COT) prompt.
-
-Here is an example of data after adding direct answer prompt:
-```
-    以下是关于(高中生物)的单项选择题，请直接给出正确答案的选项。
-    (Here are some single-choice questions about(high school biology), please provide the correct answer choice directly.)
-    题目：同一物种的两类细胞各产生一种分泌蛋白，组成这两种蛋白质的各种氨基酸含量相同，但排列顺序不同。其原因是参与这两种蛋白质合成的：
-    (Two types of cells within the same species each produce a secretion protein. The various amino acids that make up these two proteins have the same composition but differ in their arrangement. The reason for this difference in arrangement in the synthesis of these two proteins is)
-    A. tRNA种类不同(Different types of tRNA)
-    B. 同一密码子所决定的氨基酸不同(Different amino acids determined by the same codon)
-    C. mRNA碱基序列不同(Different mRNA base sequences)
-    D. 核糖体成分不同(Different ribosome components)
-    答案是：C(Answer: C)
-
-    ... [other examples] 
-
-    题目：某种植物病毒V是通过稻飞虱吸食水稻汁液在水稻间传播的。稻田中青蛙数量的增加可减少该病毒在水稻间的传播。下列叙述正确的是：
-    (Question: A certain plant virus, V, is transmitted between rice plants through the feeding of rice planthoppers. An increase in the number of frogs in the rice field can reduce the spread of this virus among the rice plants. The correct statement among the options provided would be)
-    A. 青蛙与稻飞虱是捕食关系(Frogs and rice planthoppers have a predatory relationship)
-    B. 水稻和病毒V是互利共生关系(Rice plants and virus V have a mutualistic symbiotic relationship)
-    C. 病毒V与青蛙是寄生关系(Virus V and frogs have a parasitic relationship)
-    D. 水稻与青蛙是竞争关系(Rice plants and frogs have a competitive relationship)
-    答案是： (Answer:)
-```
-For the COT prompt we modified the prompt from“请直接给出正确答案的选项 (please provide the correct answer choice directly)” to “逐步分析并选出正确答案 (Analyze step by step and select the correct answer).”
-
-#### Evaluation
-The code for evaluation of each model we used is in [src](https://github.com/haonan-li/CMMLU/tree/master/src), and the code to run them is listed in [script](https://github.com/haonan-li/CMMLU/tree/master/script) directory.
-
-## Citation
-```
-@misc{li2023cmmlu,
-      title={CMMLU: Measuring massive multitask language understanding in Chinese}, 
-      author={Haonan Li and Yixuan Zhang and Fajri Koto and Yifei Yang and Hai Zhao and Yeyun Gong and Nan Duan and Timothy Baldwin},
-      year={2023},
-      eprint={2306.09212},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL}
-}
+git clone https://github.com/stzhang-patrick/ArcMMLU.git
+cd ArcMMLU/src
 ```
 
-## License
+## 数据
 
-The CMMLU dataset is licensed under a
-[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
+我们根据每个评测维度在data/dev和data/test目录中提供了开发和测试数据集。
+
