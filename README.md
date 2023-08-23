@@ -1,14 +1,32 @@
-# ArcMMLU—面向图书馆与情报学(LIS)的中文综合评测基准
+# ArcMMLU—面向图书馆与信息科学(LIS)的中文大语言模型评测基准
+
+
+
+<p align="center"> <img src="fig/banner.jpg" style="width: 100%;" id="title-icon">       </p>
+
+<h4 align="center">
+    <p>
+        <b>简体中文</b> |
+        <a href="https://github.com/stzhang-patrick/ArcMMLU/blob/main/README_EN.md">English</a> 
+    <p>
+</h4>
+
+<p align="center" style="display: flex; flex-direction: row; justify-content: center; align-items: center">
+📄 <a href="#" target="_blank" style="margin-right: 15px; margin-left: 10px">论文</a> • 
+🏆 <a href="#" target="_blank"  style="margin-left: 10px">排行榜</a> •
+🤗 <a href="#" target="_blank" style="margin-left: 10px">数据集</a> 
+</p>
+
 
 ## 简介
 
-ArcMMLU是一个面向图书馆与情报学（Library and Information Science, LIS）的中文综合评测基准，专门用于评估语言模型在中文LIS学科领域的知识和推理能力，涵盖了档案学、数据科学、图书馆学和信息学四个评测维度。
+ArcMMLU是一个专为图书馆与信息科学（Library & Information Science, LIS）打造的中文大语言模型评测基准，旨在评估大语言模型在LIS学科领域的知识掌握和推理能力，其中涵盖了档案学、数据科学、图书馆学和信息学等四个关键细分领域。
 
-值得一提的是，ArcMMLU的名字起源自我们面对档案学的大语言模型研究项目，ArcGPT。在此之后，我们的研究范围从档案学扩大到了整个图书馆与信息科学（Library & Information Science），但是我们仍然沿用了ArcMMLU的名字。因此，ArcMMLU是面向LIS学科的综合评测基准，包括但并不仅限于档案学。
+需要特别说明的是，ArcMMLU的命名来源于我们之前的大语言模型研究项目——ArcGPT，这一项目主要针对档案学。随后，我们的研究视野从档案学拓展至更广泛的信息管理领域，但我们仍然保留了ArcMMLU这一称谓。因此，ArcMMLU不仅仅是档案学的评测基准，它是面向整个LIS学科的综合评测工具。
 
-出于通用性、便捷性的考虑，在设计ArcMMLU时，我们采用了与CMMLU相同的数据集格式，并基于CMMLU项目提供了相应的评测代码。这意味着如果某个大型语言模型已经完成了CMMLU的评测，那么只需进行少量修改就可以快速进行ArcMMLU的评测。
+出于通用性、便捷性的考虑，ArcMMLU选择了与CMMLU一致的数据格式。同时，基于CMMLU项目，我们提供了匹配的评测代码。对已在CMMLU上评测过的模型，进行ArcMMLU的评测将会变得格外简便。特别感谢[CMMLU---中文多任务语言理解评估](https://github.com/haonan-li/CMMLU)项目为中文大型语言模型评测所作出的贡献。我们希望ArcMMLU能作为其在细分领域的有力补充，为中文大语言模型评测带来更多的细节与深度。
 
-特别感谢[CMMLU---中文多任务语言理解评估](https://github.com/haonan-li/CMMLU#cmmlu---%E4%B8%AD%E6%96%87%E5%A4%9A%E4%BB%BB%E5%8A%A1%E8%AF%AD%E8%A8%80%E7%90%86%E8%A7%A3%E8%AF%84%E4%BC%B0)项目为中文大型语言模型评测所作出的贡献。我们希望ArcMMLU能够成为中文大型语言模型评测的细分领域补充，进一步完善、丰富中文大型语言模型评测。
+<p align="center"> <img src="fig/main.jpg" style="width: 65%;" id="title-icon">       </p>
 
 ## 排行榜（未排序）
 
@@ -36,12 +54,42 @@ ArcMMLU是一个面向图书馆与情报学（Library and Information Science, L
 | Baichuan-7B  | 49.21  | 46.36    | 48.69    | 45.27  | 47.38  |
 | Baichuan-13B | 54.41  | 57.17    | 61.05    | 54.48  | 56.78  |
 
-## 数据格式
+## 数据示例
 
-数据集中的每个问题都是一个多项选择题，有4个选项，只有一个选项是正确答案。数据以逗号分隔的.csv文件形式存在。 这里是数据格式的示例：
+数据集内的每个问题均为四选一的选择题，其中仅有一个选项为正确答案。数据采用逗号分隔，并保存为.csv文件格式。以下是数据样例：
 
-```
-0,2020年6月20日，第十三届全国人大常委会第十九次会议审议通过了新修订的《中华人民共和国档案法》，国家主席习近平签署第四十七号主席令予以公布，自( )起正式施行。,2020年6月20日,2020年7月1日,2021年1月1日,2021年6月20日,C
+```bash
+# 档案学
+问题: 档案与图书、文献资料相比，其特有属性是( )。
+A.原始记录性
+B.知识性
+C.信息性
+D.服务型
+答案: A
+
+# 数据科学
+问题: 在下列哪种情况下，我们通常使用回归分析？( )
+A.当我们想预测一个连续的变量，例如人的身高。
+B.当我们想预测一个离散的变量，例如人的婚姻状态。
+C.当我们想预测一个分类变量，例如人的性别。
+D.当我们有一组变量，并且想找出它们之间的关系。
+答案: A
+
+# 图书馆学
+问题: 《中图法》中基本大类由22个字母表示，“E”和“O”分别表示的是( )。
+A.军事，数理科学和化学
+B.文学，环境科学
+C.语言文学、天文学
+D.经济，法律
+答案: A
+
+# 信息学
+问题: 在信息分布的规律和特征中，揭示论文在科学期刊中的分布规律的定律是( )。
+A.马太效应
+B.布拉德福定律
+C.齐夫定律
+D.洛特卡定律
+答案: B
 ```
 
 ## 使用方法
