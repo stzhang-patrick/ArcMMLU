@@ -96,7 +96,7 @@ D.洛特卡定律
 
 要在您的项目中使用我们的代码，请将存储库克隆到本地计算机：
 
-```
+```bash
 git clone https://github.com/stzhang-patrick/ArcMMLU.git
 cd ArcMMLU/src
 ```
