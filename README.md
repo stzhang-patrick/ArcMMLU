@@ -22,9 +22,9 @@
 
 ArcMMLU是一个专为图书馆与信息科学（Library & Information Science, LIS）打造的中文大语言模型评测基准，旨在评估大语言模型在LIS学科领域的知识掌握和推理能力，其中涵盖了档案学、数据科学、图书馆学和信息学等四个关键细分领域。
 
-需要特别说明的是，ArcMMLU的命名来源于我们之前的大语言模型研究项目——[ArcGPT](https://arxiv.org/abs/2307.14852)，这一项目主要针对档案学。随后，我们的研究视野从档案学拓展至更广泛的信息管理领域，但我们仍然保留了ArcMMLU这一称谓。因此，ArcMMLU不仅仅是档案学的评测基准，它是面向整个LIS学科的综合评测工具。
+需要特别说明的是，ArcMMLU的命名来源于我们之前的大语言模型研究项目—— [ArcGPT](https://arxiv.org/abs/2307.14852)，这一项目主要针对档案学。随后，我们的研究视野从档案学拓展至更广泛的信息管理领域，但我们仍然保留了ArcMMLU这一称谓。因此，ArcMMLU不仅仅是档案学的评测基准，它是面向整个LIS学科的综合评测工具。
 
-出于通用性、便捷性的考虑，ArcMMLU选择了与CMMLU一致的数据格式。同时，基于CMMLU项目，我们提供了匹配的评测代码。对已在CMMLU上评测过的模型，进行ArcMMLU的评测将会变得格外简便。特别感谢[CMMLU---中文多任务语言理解评估](https://github.com/haonan-li/CMMLU)项目为中文大语言模型评测所作出的贡献。我们希望ArcMMLU能作为其在细分领域的有力补充，为中文大语言模型评测带来更多的细节与深度。
+出于通用性、便捷性的考虑，ArcMMLU选择了与CMMLU一致的数据格式。同时，基于CMMLU项目，我们提供了匹配的评测代码。对已在CMMLU上评测过的模型，进行ArcMMLU的评测将会变得格外简便。特别感谢 [CMMLU---中文多任务语言理解评估](https://github.com/haonan-li/CMMLU) 项目为中文大语言模型评测所作出的贡献。我们希望ArcMMLU能作为其在细分领域的有力补充，为中文大语言模型评测带来更多的细节与深度。
 
 
 <p align="center"> <img src="fig/main.jpg" style="width: 65%;" id="title-icon">       </p>
