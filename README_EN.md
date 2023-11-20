@@ -11,8 +11,8 @@
 
 <p align="center" style="display: flex; flex-direction: row; justify-content: center; align-items: center">
 📄 <a href="#" target="_blank" style="margin-right: 15px; margin-left: 10px">Paper</a> •
-🏆 <a href="#" target="_blank"  style="margin-left: 10px">Leaderboard</a> • 
-🤗 <a href="#" target="_blank" style="margin-left: 10px">Dataset</a>
+🏆 <a href="#leaderboard" target="_blank"  style="margin-left: 10px">Leaderboard</a> • 
+🤗 <a href="https://huggingface.co/datasets/patrickshitou/ArcMMLU" target="_blank" style="margin-left: 10px">Dataset</a>
 </p>
 
 ## Introduction
