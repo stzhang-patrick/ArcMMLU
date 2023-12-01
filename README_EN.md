@@ -10,7 +10,7 @@
 </h4>
 
 <p align="center" style="display: flex; flex-direction: row; justify-content: center; align-items: center">
-📄 <a href="#" target="_blank" style="margin-right: 15px; margin-left: 10px">Paper</a> •
+📄 <a href="https://arxiv.org/abs/2311.18658" target="_blank" style="margin-right: 15px; margin-left: 10px">Paper</a> •
 🏆 <a href="#leaderboard" target="_blank"  style="margin-left: 10px">Leaderboard</a> • 
 🤗 <a href="https://huggingface.co/datasets/patrickshitou/ArcMMLU" target="_blank" style="margin-left: 10px">Dataset</a>
 </p>
@@ -126,13 +126,13 @@ We provide development and test dataset according to each subject in the [arcmml
 
 ## Citation
 ```
-@misc{zhang2023arcgpt,
-    title={ArcGPT: A Large Language Model Tailored for Real-world Archival Applications}, 
-    author={Shitou Zhang and Jingrui Hou and Siyuan Peng and Zuchao Li and Qibiao Hu and Ping Wang},
-    year={2023},
-    eprint={2307.14852},
-    archivePrefix={arXiv},
-    primaryClass={cs.CL}
+@misc{zhang2023arcmmlu,
+      title={ArcMMLU: A Library and Information Science Benchmark for Large Language Models}, 
+      author={Shitou Zhang and Zuchao Li and Xingshen Liu and Liming Yang and Ping Wang},
+      year={2023},
+      eprint={2311.18658},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
 }
 ```
 
