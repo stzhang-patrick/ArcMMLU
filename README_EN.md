@@ -25,6 +25,9 @@ For the sake of convenience, ArcMMLU adopts the same data format as CMMLU. Furth
 
 <p align="center"> <img src="fig/main.jpg" style="width: 65%;" id="title-icon">       </p>
 
+Check out the introduction video of ArcMMLU produced by PaperWeekly.
+<a href="https://www.bilibili.com/video/BV1MG411v7tJ"><p align="center"> <img src="fig\bilibili.png" style="width: 65%;" id="title-icon">       </p></a>
+
 ## Leaderboard
 
 The following table displays the performance of models in the zero-shot and five-shot setting. If you wish to contribute your model's results, kindly contact us or submit a pull request to update this section. 

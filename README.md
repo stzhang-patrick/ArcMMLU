@@ -26,8 +26,11 @@ ArcMMLU是一个专为图书馆与信息科学（Library & Information Science, 
 
 出于通用性、便捷性的考虑，ArcMMLU选择了与CMMLU一致的数据格式。同时，基于CMMLU项目，我们提供了匹配的评测代码。对已在CMMLU上评测过的模型，进行ArcMMLU的评测将会变得格外简便。特别感谢 [CMMLU---中文多任务语言理解评估](https://github.com/haonan-li/CMMLU) 项目为中文大语言模型评测所作出的贡献。我们希望ArcMMLU能作为其在细分领域的有力补充，为中文大语言模型评测带来更多的细节与深度。
 
-
 <p align="center"> <img src="fig/main.jpg" style="width: 65%;" id="title-icon">       </p>
+
+由PaperWeekly制作的ArcMMLU介绍视频：
+<a href="https://www.bilibili.com/video/BV1MG411v7tJ"><p align="center"> <img src="fig\bilibili.png" style="width: 65%;" id="title-icon">       </p></a>
+
 
 ## 排行榜
 
