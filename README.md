@@ -29,7 +29,7 @@ ArcMMLU是一个专为图书馆与信息科学（Library & Information Science, 
 <p align="center"> <img src="fig/main.jpg" style="width: 65%;" id="title-icon">       </p>
 
 由PaperWeekly制作的ArcMMLU介绍视频：
-<a href="https://www.bilibili.com/video/BV1MG411v7tJ"><p align="center"> <img src="fig\bilibili.png" style="width: 65%;" id="title-icon">       </p></a>
+<p align="center"><a href="https://www.bilibili.com/video/BV1MG411v7tJ"> <img src="fig\bilibili.png" style="width: 65%;" id="title-icon"></a></p>
 
 
 ## 排行榜
