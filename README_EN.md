@@ -76,7 +76,7 @@ The following table displays the performance of models in the zero-shot and five
 | [ChatGLM-6B](https://github.com/THUDM/ChatGLM-6B)                             | 39.99 | 40.23 | 36.57 | 41.88 | 39.67 |
 
 ## Data Format
-Each question in the dataset is a multiple-choice questions with 4 choices and only one choice as the correct answer.  The data is comma saperated .csv file.
+Each question in the dataset is a multiple-choice questions with 4 choices and only one choice as the correct answer.  The data is comma separated .csv file.
 
 Here are some examples:
 ```bash
